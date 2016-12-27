@@ -6,7 +6,7 @@
 #    By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/18 18:19:19 by dpaunovi          #+#    #+#              #
-#    Updated: 2016/12/18 15:57:17 by dpaunovi         ###   ########.fr        #
+#    Updated: 2016/12/27 15:22:07 by dpaunovi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ SRC = $(addprefix ft_, putchar.c putstr.c strcmp.c \
 	charcmp.c stpcpy.c lstnew.c lstdelone.c lstdel.c \
 	lstadd.c lstiter.c lstmap.c iswhitespace.c \
 	put_ntabi.c put_ntabs.c put_tabi.c put_tabs.c \
-	tabilen.c tabslen.c)
+	tabilen.c tabslen.c replace_char.c)
 
 OBJ = $(SRC:.c=.o)
 
@@ -42,7 +42,7 @@ $(NAME):
 
 clean:
 	@rm -f $(OBJ)
-	@echo "\033[36mFiles .o as been clear"
+	@echo "\033[36mFiles .o deleted"
 
 fclean: clean
 	@rm -f $(NAME)

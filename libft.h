@@ -6,7 +6,7 @@
 /*   By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/19 22:21:11 by dpaunovi          #+#    #+#             */
-/*   Updated: 2016/12/15 17:46:45 by dpaunovi         ###   ########.fr       */
+/*   Updated: 2016/12/27 15:18:45 by dpaunovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,6 +78,7 @@ void			ft_putnbr_endl(int n);
 void			ft_swap(char a, char b);
 size_t			ft_strspn(const char *s, const char *accept);
 size_t			ft_strcspn(const char *s, const char *reject);
+char			*ft_replace_char(char *str, char c1, char c2);
 int				ft_charcmp(char c, char *s);
 char			*ft_stpcpy(char *dst, const char *src);
 int				ft_iswhitespace(char c);
