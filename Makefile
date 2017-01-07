@@ -6,12 +6,12 @@
 #    By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/18 18:19:19 by dpaunovi          #+#    #+#              #
-#    Updated: 2016/12/27 15:22:07 by dpaunovi         ###   ########.fr        #
+#    Updated: 2017/01/07 15:25:14 by dpaunovi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
-HEADER = libft.h
+HEADER = libft.h get_next_line.h
 FLAG = -Wall -Wextra -Werror
 OPTION = -c -I $(HEADER)
 SRC = $(addprefix ft_, putchar.c putstr.c strcmp.c \
@@ -29,7 +29,7 @@ SRC = $(addprefix ft_, putchar.c putstr.c strcmp.c \
 	charcmp.c stpcpy.c lstnew.c lstdelone.c lstdel.c \
 	lstadd.c lstiter.c lstmap.c iswhitespace.c \
 	put_ntabi.c put_ntabs.c put_tabi.c put_tabs.c \
-	tabilen.c tabslen.c replace_char.c)
+	tabilen.c tabslen.c replace_char.c strndup.c) get_next_line.c \
 
 OBJ = $(SRC:.c=.o)
 
