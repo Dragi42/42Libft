@@ -6,7 +6,7 @@
 /*   By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/19 22:21:11 by dpaunovi          #+#    #+#             */
-/*   Updated: 2017/01/07 15:28:12 by dpaunovi         ###   ########.fr       */
+/*   Updated: 2017/11/27 21:52:04 by dpaunovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ void			ft_lstdel(t_list **alst, void (*del)(void *, size_t));
 void			ft_lstadd(t_list **alst, t_list *new);
 void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
+void			ft_lstaddend(t_list **lst, void const *content, size_t content_size);
 
 void			ft_put_ntabi(int *tab, size_t len);
 void			ft_put_ntabs(char **tab, size_t len);

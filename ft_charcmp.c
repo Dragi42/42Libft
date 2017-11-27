@@ -6,7 +6,7 @@
 /*   By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 18:16:33 by dpaunovi          #+#    #+#             */
-/*   Updated: 2016/11/30 19:31:51 by dpaunovi         ###   ########.fr       */
+/*   Updated: 2017/11/27 21:55:59 by dpaunovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ int		ft_charcmp(char c, char *s)
 	while (s[i] && s[i] != c)
 		i++;
 	if (s[i] == c)
-		return (0);
-	return (1);
+		return (1);
+	return (0);
 }

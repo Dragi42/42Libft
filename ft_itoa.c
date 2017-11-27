@@ -6,12 +6,11 @@
 /*   By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 20:00:18 by dpaunovi          #+#    #+#             */
-/*   Updated: 2016/12/03 17:34:35 by dpaunovi         ###   ########.fr       */
+/*   Updated: 2017/11/27 21:56:17 by dpaunovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdlib.h>
 
 static void	operator(int *n, int *len)
 {

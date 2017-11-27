@@ -6,7 +6,7 @@
 /*   By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/12/20 18:55:33 by dpaunovi          #+#    #+#             */
-/*   Updated: 2017/01/07 15:23:34 by dpaunovi         ###   ########.fr       */
+/*   Updated: 2017/11/27 22:07:01 by dpaunovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <fcntl.h>
 # include <unistd.h>
 # include "libft.h"
-# define BUFF_SIZE 8
+# define BUFF_SIZE 4096
 
 typedef struct		s_file
 {

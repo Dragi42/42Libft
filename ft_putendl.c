@@ -6,7 +6,7 @@
 /*   By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 18:51:00 by dpaunovi          #+#    #+#             */
-/*   Updated: 2016/11/29 18:52:29 by dpaunovi         ###   ########.fr       */
+/*   Updated: 2017/11/27 21:57:09 by dpaunovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,6 @@
 
 void	ft_putendl(char const *s)
 {
-	int i;
-
-	i = 0;
-	while (s[i])
-	{
-		ft_putchar(s[i]);
-		i++;
-	}
+	ft_putstr(s);
 	ft_putchar('\n');
 }

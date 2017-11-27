@@ -1,19 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/29 18:57:28 by dpaunovi          #+#    #+#             */
-/*   Updated: 2017/11/27 22:04:29 by dpaunovi         ###   ########.fr       */
+/*   Created: 2016/11/30 19:24:57 by dpaunovi          #+#    #+#             */
+/*   Updated: 2017/11/27 21:47:44 by dpaunovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <unistd.h>
 
-void	ft_putstr_fd(const char *s, int fd)
+void	ft_lstaddend(t_list **lst, void const *content, size_t content_size)
 {
-	write(fd, s, ft_strlen(s));
+	t_list	*tmp;
+	void	*cpy_content;
+
+	tmp = *lst;
+	while (tmp)
+		tmp = tmp->next;
+	tmp = ft_lstnew(content, content_size);
 }
