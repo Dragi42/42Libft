@@ -1,2 +1,10 @@
-# Libft
-Ce premier projet en tant qu'étudiant de 42 va vous faire consolider vos acquis de piscine. Vous allez recoder un certain nombre de fonctions de la librairie C standard, ainsi que d'autres fonctions utilitaires que vous réutiliserez tout au long de votre cursus.
+██╗     ██╗██████╗ ███████╗████████╗ 
+██║     ██║██╔══██╗██╔════╝╚══██╔══╝
+██║     ██║██████╔╝█████╗     ██║   
+██║     ██║██╔══██╗██╔══╝     ██║   
+███████╗██║██████╔╝██║        ██║   
+╚══════╝╚═╝╚═════╝ ╚═╝        ╚═╝                                    
+As a WeThinkCode_ student you'll be able, through this first project, 
+to strengthen your skills learned during the bootcamp.
+You'll recode functions from the standard C library, 
+and some other very useful functions that you'll be able to use all along the program.
