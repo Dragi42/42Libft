@@ -15,7 +15,6 @@
 void	ft_lstaddend(t_list **lst, void const *content, size_t content_size)
 {
 	t_list	*tmp;
-	void	*cpy_content;
 
 	tmp = *lst;
 	while (tmp)
