@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -14,17 +14,17 @@
 
 void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char	*dest;
-	unsigned char	*srcs;
+	unsigned char	*c1;
+	unsigned char	*c2;
 
-	srcs = (unsigned char *)src;
-	dest = (unsigned char *)dst;
+	c1 = (unsigned char *)dst;
+	c2 = (unsigned char *)src;
 	if (len == 0 || dst == src)
 		return (dst);
 	if (dst > src)
 	{
 		while (len--)
-			dest[len] = srcs[len];
+			c1[len] = c2[len];
 	}
 	else
 		ft_memcpy(dst, src, len);

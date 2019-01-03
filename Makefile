@@ -15,7 +15,7 @@ HEADER = libft.h get_next_line.h
 FLAG = -Wall -Wextra -Werror
 OPTION = -c -I $(HEADER)
 SRC = $(addprefix ft_, putchar.c putstr.c strcmp.c \
-	strlen.c swap.c putnbr.c memset.c bzero.c \
+	strlen.c strnlen.c swap.c putnbr.c memset.c bzero.c \
 	memcpy.c memccpy.c memmove.c memchr.c memcmp.c \
 	strdup.c strcpy.c strncpy.c strcat.c strncat.c \
 	strlcat.c strchr.c strrchr.c strstr.c strnstr.c \

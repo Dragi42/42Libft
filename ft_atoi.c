@@ -15,11 +15,11 @@
 int		ft_atoi(const char *str)
 {
 	int i;
-	int j;
+	int result;
 	int neg;
 
 	i = 0;
-	j = 0;
+	result = 0;
 	neg = 0;
 	while (ft_iswhitespace(str[i]))
 		i++;
@@ -33,10 +33,10 @@ int		ft_atoi(const char *str)
 	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
 	{
 		if (str[i] >= '0' && str[i] <= '9')
-			j = (j * 10) + (str[i] - '0');
+			result = (result * 10) + (str[i] - '0');
 		else
 			return (0);
 		i++;
 	}
-	return (neg ? -j : j);
+	return (neg ? -result : result);
 }

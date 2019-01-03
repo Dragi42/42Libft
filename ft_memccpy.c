@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_memccpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,23 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
 
 void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
 	unsigned char	*c1;
 	unsigned char	*c2;
-	size_t			i;
 
-	i = 0;
 	c1 = (unsigned char *)dst;
 	c2 = (unsigned char *)src;
-	while (i < n)
+	while (n--)
 	{
-		c1[i] = c2[i];
-		if (c1[i] == (unsigned char)c)
-			return (c1 + i + 1);
-		i++;
+		*c1++ = *c2++;
+		if (*(c1 - 1) == (unsigned char)c)
+			return (c1);
 	}
 	return (NULL);
 }
