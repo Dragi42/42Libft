@@ -6,7 +6,7 @@
 /*   By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/29 18:57:28 by dpaunovi          #+#    #+#             */
-/*   Updated: 2017/11/27 22:04:29 by dpaunovi         ###   ########.fr       */
+/*   Updated: 2019/01/22 15:10:29 by dpaunovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,6 @@
 
 void	ft_putstr_fd(const char *s, int fd)
 {
-	write(fd, s, ft_strlen(s));
+	if (s)
+		write(fd, s, ft_strlen(s));
 }
