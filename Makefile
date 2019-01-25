@@ -6,47 +6,56 @@
 #    By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/11/18 18:19:19 by dpaunovi          #+#    #+#              #
-#    Updated: 2017/03/08 18:39:28 by dpaunovi         ###   ########.fr        #
+#    Updated: 2019/01/25 18:14:11 by dpaunovi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-HEADER = libft.h get_next_line.h
-FLAG = -Wall -Wextra -Werror
-OPTION = -c -I $(HEADER)
-SRC = $(addprefix ft_, putchar.c putstr.c strcmp.c \
-	strlen.c strnlen.c swap.c putnbr.c memset.c bzero.c \
-	memcpy.c memccpy.c memmove.c memchr.c memcmp.c \
-	strdup.c strcpy.c strncpy.c strcat.c strncat.c \
-	strlcat.c strchr.c strrchr.c strstr.c strnstr.c \
-	atoi.c strcmp.c strncmp.c isalpha.c isdigit.c \
-	isalnum.c isascii.c isprint.c toupper.c tolower.c \
-	memalloc.c memdel.c strnew.c strdel.c strclr.c \
-	striter.c striteri.c strmap.c strmapi.c strequ.c \
-	strnequ.c strsub.c strjoin.c strtrim.c strsplit.c \
-	itoa.c putendl.c putchar_fd.c putstr_fd.c putnbr_fd.c \
-	putendl_fd.c strcchr.c putnbr_endl.c strspn.c strcspn.c \
-	charcmp.c stpcpy.c lstnew.c lstdelone.c lstdel.c \
-	lstadd.c lstiter.c lstmap.c iswhitespace.c \
-	put_ntabi.c put_ntabs.c put_tabi.c put_tabs.c \
-	tabilen.c tabslen.c replace_char.c strndup.c lstaddend.c) \
-	get_next_line.c \
+.PHONY: all, clean, fclean, re
 
-OBJ = $(SRC:.c=.o)
+RESET = \033[0m
+YELLOW = \033[32m
+CYAN = \033[36m
+RED = \033[31m
 
-all: $(NAME)
+EXEC = libft.a
+CC = clang
+CFLAGS = -Wall -Wextra -Werror
+LDFLAGS =
 
-$(NAME):
-	@gcc $(FLAG) $(OPTION) $(SRC)
-	@ar rc $(NAME) $(OBJ)
-	@echo "\033[32mlibft created"
+HEADERS = headers/
+
+SRC_PUT = $(wildcard put/*.c)
+SRC_STR = $(wildcard str/*.c)
+SRC_IS = $(wildcard is/*.c)
+SRC_MEM = $(wildcard mem/*.c)
+SRC_LST = $(wildcard lst/*.c)
+SRC_OTHER = $(wildcard other/*.c)
+
+OBJ_PUT = $(SRC_PUT:.c=.o)
+OBJ_STR = $(SRC_STR:.c=.o)
+OBJ_IS = $(SRC_IS:.c=.o)
+OBJ_MEM = $(SRC_MEM:.c=.o)
+OBJ_LST = $(SRC_LST:.c=.o)
+OBJ_OTHER = $(SRC_OTHER:.c=.o)
+OBJ = $(OBJ_PUT) $(OBJ_STR) $(OBJ_IS) $(OBJ_MEM) $(OBJ_LST) $(OBJ_OTHER)
+
+OPTION = -I $(HEADERS)
+
+all: $(EXEC)
+
+$(EXEC): $(OBJ)
+	@ar rc $(EXEC) $(OBJ)
+	@echo "$(YELLOW)$(EXEC) created$(RESET)"
+
+%.o: %.c
+	$(CC) $(CFLAGS) $(OPTION) -o $@ -c $<
 
 clean:
 	@rm -f $(OBJ)
-	@echo "\033[36mFiles .o deleted"
+	@echo "$(CYAN)Files .o deleted$(RESET)"
 
 fclean: clean
-	@rm -f $(NAME)
-	@echo "\033[31mlibft deleted"
+	@rm -f $(EXEC)
+	@echo "$(RED)$(EXEC) deleted$(RESET)"
 
 re: fclean all
