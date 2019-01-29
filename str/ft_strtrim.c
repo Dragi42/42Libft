@@ -6,7 +6,7 @@
 /*   By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/28 18:49:51 by dpaunovi          #+#    #+#             */
-/*   Updated: 2016/12/04 15:31:07 by dpaunovi         ###   ########.fr       */
+/*   Updated: 2019/01/29 15:51:24 by dpaunovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ char	*ft_strtrim(char const *s)
 	i = 0;
 	if (s == NULL)
 		return (NULL);
-	while (*s && (*s == ' ' || *s == '\n' || *s == '\t'))
+	while (*s && ft_iswhitespace(*s))
 		s++;
 	if (*s == '\0')
 		return (ft_strdup(s));
 	i = ft_strlen((char *)s);
-	while (i > 0 && (s[i - 1] == ' ' || s[i - 1] == '\n' || s[i - 1] == '\t'))
+	while (i > 0 && ft_iswhitespace(s[i - 1]))
 		i--;
-	if (!(s1 = ft_strnew(i + 1)))
+	if (!(s1 = ft_strnew(i)))
 		return (NULL);
 	ft_strncpy(s1, s, i);
 	if (s1)

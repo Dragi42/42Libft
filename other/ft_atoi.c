@@ -6,37 +6,32 @@
 /*   By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/23 15:10:58 by dpaunovi          #+#    #+#             */
-/*   Updated: 2019/01/25 18:14:31 by dpaunovi         ###   ########.fr       */
+/*   Updated: 2019/01/29 15:43:14 by dpaunovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_atoi(const char *str)
+int		ft_atoi(const char *s)
 {
-	int i;
+	int len;
 	int result;
 	int neg;
 
-	i = 0;
+	len = 0;
 	result = 0;
 	neg = 0;
-	while (ft_iswhitespace(str[i]))
-		i++;
-	if (str[i] == '-')
-	{
-		i++;
-		neg = 1;
-	}
-	if (str[i] == '+' && neg == 0)
-		i++;
-	while (str[i] != '\0' && str[i] >= '0' && str[i] <= '9')
-	{
-		if (str[i] >= '0' && str[i] <= '9')
-			result = (result * 10) + (str[i] - '0');
-		else
-			return (0);
-		i++;
-	}
+	while (*s && (ft_iswhitespace(*s) || (*s == '-' && ft_isdigit(s[1])) ||
+				(*s == '+' && ft_isdigit(s[1]))))
+		if (*(s++) == '-')
+			neg = 1;
+	while (*s == '0')
+		s++;
+	while (ft_isdigit(s[len]))
+		len++;
+	if (len > 10)
+		return (neg ? 0 : -1);
+	while (ft_isdigit(*s))
+		result = (result * 10) + (*(s++) - '0');
 	return (neg ? -result : result);
 }
