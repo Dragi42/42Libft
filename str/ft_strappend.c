@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_charcmp.c                                       :+:      :+:    :+:   */
+/*   ft_strappend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dpaunovi <dpaunovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 18:16:33 by dpaunovi          #+#    #+#             */
-/*   Updated: 2017/11/27 21:55:59 by dpaunovi         ###   ########.fr       */
+/*   Created: 2019/02/11 11:37:10 by dpaunovi          #+#    #+#             */
+/*   Updated: 2019/02/11 12:27:13 by dpaunovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_charcmp(char c, char *s)
+void    ft_strappend(char **s1, char const *s2)
 {
-	int	i;
+	char		*dst;
 
-	i = 0;
-	while (s[i] && s[i] != c)
-		i++;
-	if (s[i] == c)
-		return (1);
-	return (0);
+    dst = ft_strjoin(*s1, s2);
+	if (dst != NULL)
+	{
+        free(*s1);
+        *s1 = ft_strdup(dst);
+        ft_strdel(&dst);
+	}
+	return;
 }

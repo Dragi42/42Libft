@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dpaunovi <dpaunovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/19 22:21:11 by dpaunovi          #+#    #+#             */
-/*   Updated: 2017/11/27 21:52:04 by dpaunovi         ###   ########.fr       */
+/*   Updated: 2019/02/11 12:58:12 by dpaunovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,38 @@ typedef struct	s_list
 	struct s_list	*next;
 }				t_list;
 
-void			ft_putchar(char c);
-void			ft_putstr(char const *s);
-void			ft_putnbr(int n);
-void			*ft_memset(void *b, int c, size_t len);
+int				ft_iswhitespace(char c);
+int				ft_isalpha(int c);
+int				ft_isdigit(int c);
+int				ft_isalnum(int c);
+int				ft_isascii(int c);
+int				ft_isprint(int c);
+
 void			ft_bzero(void *s, size_t n);
+void			*ft_memset(void *b, int c, size_t len);
 void			*ft_memcpy(void *dst, const void *src, size_t n);
 void			*ft_memccpy(void *dst, const void *src, int c, size_t n);
 void			*ft_memmove(void *dst, const void *src, size_t len);
 void			*ft_memchr(const void *s, int c, size_t n);
+void			*ft_memalloc(size_t size);
+void			ft_memdel(void **ap);
 int				ft_memcmp(const void *s1, const void *s2, size_t n);
+
+void			ft_putchar(char c);
+void			ft_putstr(char const *s);
+void			ft_putnbr(int n);
+void			ft_putendl(char const *s);
+void			ft_putnbr_endl(int n);
+void			ft_putchar_fd(char c, int fd);
+void			ft_putstr_fd(char const *s, int fd);
+void			ft_putendl_fd(char const *s, int fd);
+void			ft_putnbr_fd(int n, int fd);
+
+void			ft_put_ntabi(int *tab, size_t len);
+void			ft_put_ntabs(char **tab, size_t len);
+void			ft_put_tabi(int *tab, int end);
+void			ft_put_tabs(char **tab);
+
 size_t			ft_strlen(const char *s);
 size_t			ft_strnlen(const char *s, size_t maxlen);
 char			*ft_strdup(const char *s1);
@@ -47,16 +69,6 @@ char			*ft_strstr(const char *big, const char *little);
 char			*ft_strnstr(const char *big, const char *little, size_t len);
 int				ft_strcmp(const char *s1, const char *s2);
 int				ft_strncmp(const char *s1, const char *s2, size_t n);
-int				ft_atoi(const char *str);
-int				ft_isalpha(int c);
-int				ft_isdigit(int c);
-int				ft_isalnum(int c);
-int				ft_isascii(int c);
-int				ft_isprint(int c);
-int				ft_toupper(int c);
-int				ft_tolower(int c);
-void			*ft_memalloc(size_t size);
-void			ft_memdel(void **ap);
 char			*ft_strnew(size_t size);
 void			ft_strdel(char **as);
 void			ft_strclr(char *s);
@@ -67,24 +79,23 @@ char			*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 int				ft_strequ(char const *s1, char const *s2);
 int				ft_strnequ(char const *s1, char const *s2, size_t n);
 char			*ft_strsub(char const *s, unsigned int start, size_t len);
+void			ft_strappend(char **s1, char const *s2);
 char			*ft_strjoin(char const *s1, char const *s2);
 char			*ft_strtrim(char const *s);
 char			**ft_strsplit(char const *s, char c);
-char			*ft_itoa(int n);
-void			ft_putendl(char const *s);
-void			ft_putchar_fd(char c, int fd);
-void			ft_putstr_fd(char const *s, int fd);
-void			ft_putendl_fd(char const *s, int fd);
-void			ft_putnbr_fd(int n, int fd);
 char			*ft_strcchr(const char *s, int c);
-void			ft_putnbr_endl(int n);
-void			ft_swap(char a, char b);
 size_t			ft_strspn(const char *s, const char *accept);
 size_t			ft_strcspn(const char *s, const char *reject);
+
+int				ft_atoi(const char *str);
+int				ft_toupper(int c);
+int				ft_tolower(int c);
+char			*ft_itoa(int n);
+void			ft_swap(char a, char b);
 char			*ft_replace_char(char *str, char c1, char c2);
-int				ft_charcmp(char c, char *s);
 char			*ft_stpcpy(char *dst, const char *src);
-int				ft_iswhitespace(char c);
+size_t			ft_tabilen(int *tab, int end);
+size_t			ft_tabslen(char **tab);
 
 t_list			*ft_lstnew(void const *content, size_t content_size);
 void			ft_lstdelone(t_list **alst, void (*del)(void *, size_t));
@@ -94,11 +105,6 @@ void			ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list			*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 void			ft_lstaddend(t_list **lst, void const *content, size_t content_size);
 
-void			ft_put_ntabi(int *tab, size_t len);
-void			ft_put_ntabs(char **tab, size_t len);
-void			ft_put_tabi(int *tab, int end);
-void			ft_put_tabs(char **tab);
-size_t			ft_tabilen(int *tab, int end);
-size_t			ft_tabslen(char **tab);
+char			*get_file_content(char *file_name);
 
 #endif

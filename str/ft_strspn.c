@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strspn.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dpaunovi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: dpaunovi <dpaunovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/11/30 17:09:24 by dpaunovi          #+#    #+#             */
-/*   Updated: 2016/11/30 17:38:11 by dpaunovi         ###   ########.fr       */
+/*   Updated: 2019/02/11 13:02:30 by dpaunovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t	ft_strspn(const char *s, const char *accept)
 
 	i = 0;
 	j = 0;
-	while (accept[j] && s[i])
+	while (s[i] && accept[j])
 	{
 		if (s[i] == accept[j])
 			i++;

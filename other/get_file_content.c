@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcspn.c                                       :+:      :+:    :+:   */
+/*   get_file_content.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dpaunovi <dpaunovi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/11/30 17:09:24 by dpaunovi          #+#    #+#             */
-/*   Updated: 2019/02/11 13:42:42 by dpaunovi         ###   ########.fr       */
+/*   Created: 2019/02/11 12:47:44 by dpaunovi          #+#    #+#             */
+/*   Updated: 2019/02/11 12:47:53 by dpaunovi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strcspn(const char *s, const char *reject)
-{
-	size_t	i;
-	size_t	count;
+char	*get_file_content(char *file_name) {
+	int		fd;
+	int		rd;
+	int		buff_size;
+	char	*buff;
+	char	*content;
 
-	i = 0;
-	count = 0;
-	while (s[i] && reject[count])
+	buff_size = 1;
+	buff = ft_strnew(buff_size + 1);
+	content = ft_strnew(0);
+	fd = open(file_name, O_RDONLY);
+	while ((rd = read(fd, buff, buff_size)) > 0)
 	{
-		if (s[i] != reject[count])
-			i++;
-		count++;
+		buff[rd] = '\0';
+		ft_strappend(&content, buff);
 	}
-	return (count);
+	ft_strdel(&buff);
+	close(fd);
+	return (content);
 }
